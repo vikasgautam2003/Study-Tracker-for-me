@@ -97,34 +97,31 @@ export default function Calendar({ tasks, history, displayedDate, setDisplayedDa
       const dateObj = new Date(year, month, d);
       const dateKey = getDateKey(dateObj);
       const dayHistory = history[dateKey] || {};
-      const success =
-        tasks.length > 0 &&
-        tasks.every(
-          (t) =>
-            dayHistory[String(t.id)] === true ||
-            dayHistory[String(t.id)] === "true"
-        );
 
-      const isToday = dateKey === todayKey;
-      const isPastOrToday = new Date(dateKey) <= new Date(todayKey);
+const success =
+  Object.keys(dayHistory).length > 0 &&
+  Object.values(dayHistory).every((v) => v === true || v === "true");
 
-      let emoji = "";
-      let emojiColor = "";
-      let classes = "calendar-day group";
+const isToday = dateKey === todayKey;
+const isPastOrToday = new Date(dateKey) <= new Date(todayKey);
 
-      if (isPastOrToday && success) {
-        emoji = "👑";
-        emojiColor = isToday ? "text-green-400" : "text-yellow-300";
-        classes += isToday ? " today-success" : " success";
-      } else if (isPastOrToday && !success) {
-        emoji = "👎";
-        emojiColor = "text-red-400";
-        classes += " failure";
-      } else if (isToday && !success) {
-        emoji = "🎯";
-        emojiColor = "text-blue-400";
-        classes += " today";
-      }
+let emoji = "";
+let emojiColor = "";
+let classes = "calendar-day group";
+
+if (isPastOrToday && success) {
+  emoji = "👑";
+  emojiColor = isToday ? "text-green-400" : "text-yellow-300";
+  classes += isToday ? " today-success" : " success";
+} else if (isPastOrToday && !success) {
+  emoji = "👎";
+  emojiColor = "text-red-400";
+  classes += " failure";
+} else if (isToday && !success) {
+  emoji = "🎯";
+  emojiColor = "text-blue-400";
+  classes += " today";
+}
 
       days.push(
         <motion.div
