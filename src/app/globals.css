@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+
+
+
+
+
+
+
+
+
+
+
+
+.calendar-day {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1 / 1;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  color: #e5e7eb;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.25s ease;
+  position: relative;
+}
+.calendar-day:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(148, 163, 184, 0.2);
+}
+.calendar-day.success {
+  background: linear-gradient(180deg, rgba(5, 103, 73, 0.95), rgba(6, 95, 70, 0.9));
+  color: #ecfdf5;
+}
+.calendar-day.failure {
+  background: linear-gradient(180deg, rgba(88, 19, 19, 0.95), rgba(153, 27, 27, 0.9));
+  color: #fee2e2;
+}
+.calendar-day.today {
+  background: linear-gradient(180deg, rgba(13, 25, 48, 0.9), rgba(11, 22, 42, 0.8));
+  color: #93c5fd;
+}
+.calendar-day.today-success {
+  background: linear-gradient(180deg, rgba(2, 44, 34, 0.9), rgba(3, 55, 40, 0.85));
+  color: #86efac;
+}
