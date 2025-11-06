@@ -118,45 +118,207 @@
 
 
 
+// "use client";
+// import { useEffect, useState } from "react";
+// import { motion, AnimatePresence } from "framer-motion";
+// import confetti from "canvas-confetti";
+
+
+
+// export default function MotivationModal({ onClose }) {
+//   const [index, setIndex] = useState(0);
+//   const messages = [
+//     "You showed up today — that’s where most people stop.",
+//     "You’re now 1% ahead of who you were yesterday.",
+//     "Every small step is rewriting the story of your life.",
+//     "This discipline you feel right now — it’s your future self thanking you.",
+//     "Remember this feeling. You built it. You earned it.",
+//     "You’re not chasing perfection — you’re chasing growth. And you’re winning.",
+//   ];
+
+//   useEffect(() => {
+//     // ✨ gentle confetti + sound
+//     confetti({
+//       particleCount: 80,
+//       spread: 90,
+//       origin: { y: 0.7 },
+//       colors: ["#60a5fa", "#a78bfa", "#fbbf24", "#34d399"],
+//     });
+//     const audio = new Audio("/sounds/soft_chime.mp3");
+//     audio.volume = 0.10;
+//     audio.play().catch(() => {});
+
+//     // ⏳ slideshow flow
+//     const interval = setInterval(() => {
+//       setIndex((i) => (i + 1) % messages.length);
+//     }, 3000);
+
+//     const timer = setTimeout(onClose, messages.length * 3000 + 1000);
+//     return () => {
+//       clearInterval(interval);
+//       clearTimeout(timer);
+//     };
+//   }, [onClose]);
+
+//   return (
+//     <AnimatePresence>
+//       <motion.div
+//         key="motivation-overlay"
+//         initial={{ opacity: 0 }}
+//         animate={{ opacity: 1 }}
+//         exit={{ opacity: 0 }}
+//         transition={{ duration: 0.6 }}
+//         onClick={onClose}
+//         className="fixed inset-0 bg-gradient-to-b from-black/90 via-[#0a0d13]/95 to-black/90
+//                    backdrop-blur-md flex items-center justify-center z-[999]"
+//       >
+//         <motion.div
+//           onClick={(e) => e.stopPropagation()}
+//           initial={{ scale: 0.9, opacity: 0 }}
+//           animate={{ scale: 1, opacity: 1 }}
+//           exit={{ opacity: 0, scale: 0.95 }}
+//           transition={{ duration: 0.8, ease: 'easeOut' }}
+//           className="relative max-w-2xl w-[90%] px-8 py-12 text-center rounded-3xl
+//                      bg-gradient-to-b from-[#0d1321]/95 via-[#0f172a]/90 to-[#0a101a]/95
+//                      border border-blue-400/20 shadow-[0_0_40px_rgba(59,130,246,0.3)]
+//                      text-white overflow-hidden"
+//         >
+//           {/* ethereal glow */}
+//           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(59,130,246,0.25),transparent_80%)]"></div>
+
+//           {/* floating aura ring */}
+//           <motion.div
+//             className="absolute -top-24 left-1/2 -translate-x-1/2 w-72 h-72 border-[1.5px] rounded-full border-blue-400/40"
+//             initial={{ scale: 0.7, opacity: 0 }}
+//             animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
+//             transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
+//           />
+
+//           {/* header text */}
+//           <motion.h2
+//             initial={{ opacity: 0, y: -15 }}
+//             animate={{ opacity: 1, y: 0 }}
+//             transition={{ duration: 0.6 }}
+//             className="text-3xl sm:text-4xl font-extrabold mb-10 text-blue-300 drop-shadow-[0_0_15px_rgba(96,165,250,0.5)]"
+//           >
+//             Becoming. Stronger. Every. Day.
+//           </motion.h2>
+
+//           {/* slideshow quote section */}
+//           <AnimatePresence mode="wait">
+//             <motion.p
+//               key={index}
+//               initial={{ opacity: 0, y: 20 }}
+//               animate={{ opacity: 1, y: 0 }}
+//               exit={{ opacity: 0, y: -20 }}
+//               transition={{ duration: 0.8, ease: "easeInOut" }}
+//               className="text-xl sm:text-2xl font-semibold text-gray-100 italic leading-relaxed"
+//             >
+//               “{messages[index]}”
+//             </motion.p>
+//           </AnimatePresence>
+
+//           {/* glowing progress bar */}
+//           <motion.div
+//             key={`bar-${index}`}
+//             initial={{ width: 0 }}
+//             animate={{ width: "100%" }}
+//             transition={{ duration: 2.8, ease: "easeOut" }}
+//             className="mt-10 h-[3px] bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-400 rounded-full shadow-[0_0_12px_rgba(59,130,246,0.5)]"
+//           ></motion.div>
+
+//           {/* gentle flare at bottom */}
+//           <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-blue-500/10 to-transparent blur-[50px]"></div>
+
+//           {/* floating emojis for emotional pulse */}
+//           {Array.from({ length: 10 }).map((_, i) => (
+//             <motion.span
+//               key={i}
+//               className="absolute text-2xl select-none"
+//               style={{
+//                 left: `${Math.random() * 100}%`,
+//                 top: `${Math.random() * 100}%`,
+//               }}
+//               initial={{ y: 0, opacity: 0 }}
+//               animate={{
+//                 y: [0, -80 - Math.random() * 60],
+//                 opacity: [0, 1, 0],
+//               }}
+//               transition={{
+//                 duration: 3 + Math.random() * 2,
+//                 repeat: Infinity,
+//                 delay: Math.random() * 2,
+//               }}
+//             >
+//               {["🌙", "✨", "🔥", "💫", "🌻"][Math.floor(Math.random() * 5)]}
+//             </motion.span>
+//           ))}
+//         </motion.div>
+//       </motion.div>
+//     </AnimatePresence>
+//   );
+// }
+
+
+
+
+
+
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import confetti from "canvas-confetti";
+import { MOTIVATION_QUOTES } from "@/utils/motivationQuotes";
 
 export default function MotivationModal({ onClose }) {
   const [index, setIndex] = useState(0);
-  const messages = [
-    "You showed up today — that’s where most people stop.",
-    "You’re now 1% ahead of who you were yesterday.",
-    "Every small step is rewriting the story of your life.",
-    "This discipline you feel right now — it’s your future self thanking you.",
-    "Remember this feeling. You built it. You earned it.",
-    "You’re not chasing perfection — you’re chasing growth. And you’re winning.",
-  ];
+  const [slides, setSlides] = useState([]);
 
+  // 🎯 Generate a dynamic 5-line emotional progression per show
   useEffect(() => {
-    // ✨ gentle confetti + sound
+    const randomQuotes = [...MOTIVATION_QUOTES]
+      .sort(() => Math.random() - 0.5)
+      .slice(0, 5)
+      .map(q => `“${q.quote}”`);
+    setSlides(randomQuotes);
+  }, []);
+
+  // 💥 Visual & sound effects
+  useEffect(() => {
+    const colors = ["#60a5fa", "#a78bfa", "#fbbf24", "#34d399", "#fb7185"];
     confetti({
       particleCount: 80,
       spread: 90,
       origin: { y: 0.7 },
-      colors: ["#60a5fa", "#a78bfa", "#fbbf24", "#34d399"],
+      colors,
     });
     const audio = new Audio("/sounds/soft_chime.mp3");
-    audio.volume = 0.10;
+    audio.volume = 0.1;
     audio.play().catch(() => {});
 
-    // ⏳ slideshow flow
     const interval = setInterval(() => {
-      setIndex((i) => (i + 1) % messages.length);
-    }, 3000);
+      setIndex((i) => (i + 1) % 5);
+      confetti({
+        particleCount: 20,
+        spread: 60,
+        origin: { y: 0.8 },
+        scalar: 0.8,
+        colors,
+      });
+    }, 3500);
 
-    const timer = setTimeout(onClose, messages.length * 3000 + 1000);
+    const timer = setTimeout(() => {
+      confetti({ particleCount: 200, spread: 120, origin: { y: 0.6 }, colors });
+      onClose();
+    }, 5 * 3500 + 1000);
+
     return () => {
       clearInterval(interval);
       clearTimeout(timer);
     };
   }, [onClose]);
+
+  if (slides.length === 0) return null;
 
   return (
     <AnimatePresence>
@@ -178,58 +340,60 @@ export default function MotivationModal({ onClose }) {
           transition={{ duration: 0.8, ease: 'easeOut' }}
           className="relative max-w-2xl w-[90%] px-8 py-12 text-center rounded-3xl
                      bg-gradient-to-b from-[#0d1321]/95 via-[#0f172a]/90 to-[#0a101a]/95
-                     border border-blue-400/20 shadow-[0_0_40px_rgba(59,130,246,0.3)]
+                     border border-blue-400/20 shadow-[0_0_50px_rgba(96,165,250,0.4)]
                      text-white overflow-hidden"
         >
-          {/* ethereal glow */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(59,130,246,0.25),transparent_80%)]"></div>
+          {/* glowing aura core */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(59,130,246,0.2),transparent_80%)]"></div>
 
-          {/* floating aura ring */}
+          {/* ethereal rotating halo */}
           <motion.div
             className="absolute -top-24 left-1/2 -translate-x-1/2 w-72 h-72 border-[1.5px] rounded-full border-blue-400/40"
             initial={{ scale: 0.7, opacity: 0 }}
-            animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
-            transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
+            animate={{ scale: [1, 1.15, 1], opacity: [0.3, 0.6, 0.3], rotate: [0, 360] }}
+            transition={{ repeat: Infinity, duration: 10, ease: "linear" }}
           />
 
-          {/* header text */}
+          {/* Headline */}
           <motion.h2
-            initial={{ opacity: 0, y: -15 }}
+            initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-3xl sm:text-4xl font-extrabold mb-10 text-blue-300 drop-shadow-[0_0_15px_rgba(96,165,250,0.5)]"
+            className="text-3xl sm:text-4xl font-extrabold mb-10 text-blue-300 drop-shadow-[0_0_20px_rgba(59,130,246,0.6)]"
           >
-            Becoming. Stronger. Every. Day.
+            You’re Evolving — Right Now.
           </motion.h2>
 
-          {/* slideshow quote section */}
+          {/* Slide Show */}
           <AnimatePresence mode="wait">
             <motion.p
               key={index}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
+              exit={{ opacity: 0, y: -25 }}
               transition={{ duration: 0.8, ease: "easeInOut" }}
-              className="text-xl sm:text-2xl font-semibold text-gray-100 italic leading-relaxed"
+              className={`text-xl sm:text-2xl font-semibold leading-relaxed italic ${
+                index < 3 ? "text-gray-100" : "text-blue-200"
+              }`}
             >
-              “{messages[index]}”
+              {slides[index]}
             </motion.p>
           </AnimatePresence>
 
-          {/* glowing progress bar */}
+          {/* Dynamic glowing progress bar */}
           <motion.div
             key={`bar-${index}`}
             initial={{ width: 0 }}
             animate={{ width: "100%" }}
-            transition={{ duration: 2.8, ease: "easeOut" }}
-            className="mt-10 h-[3px] bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-400 rounded-full shadow-[0_0_12px_rgba(59,130,246,0.5)]"
+            transition={{ duration: 3, ease: "easeOut" }}
+            className="mt-10 h-[4px] bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-400 rounded-full shadow-[0_0_20px_rgba(59,130,246,0.6)]"
           ></motion.div>
 
-          {/* gentle flare at bottom */}
-          <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-blue-500/10 to-transparent blur-[50px]"></div>
+          {/* closing halo glow */}
+          <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-blue-500/15 to-transparent blur-[70px]"></div>
 
-          {/* floating emojis for emotional pulse */}
-          {Array.from({ length: 10 }).map((_, i) => (
+          {/* Floating emotional pulse emojis */}
+          {Array.from({ length: 14 }).map((_, i) => (
             <motion.span
               key={i}
               className="absolute text-2xl select-none"
@@ -239,7 +403,7 @@ export default function MotivationModal({ onClose }) {
               }}
               initial={{ y: 0, opacity: 0 }}
               animate={{
-                y: [0, -80 - Math.random() * 60],
+                y: [0, -100 - Math.random() * 70],
                 opacity: [0, 1, 0],
               }}
               transition={{
@@ -248,7 +412,7 @@ export default function MotivationModal({ onClose }) {
                 delay: Math.random() * 2,
               }}
             >
-              {["🌙", "✨", "🔥", "💫", "🌻"][Math.floor(Math.random() * 5)]}
+              {["✨", "🌠", "🔥", "🌈", "💫", "⚡"][Math.floor(Math.random() * 6)]}
             </motion.span>
           ))}
         </motion.div>
