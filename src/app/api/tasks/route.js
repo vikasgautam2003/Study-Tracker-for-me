@@ -14,3 +14,17 @@ export async function POST(req) {
   const result = await db.collection("tasks").insertOne(data);
   return Response.json({ insertedId: result.insertedId });
 }
+
+
+
+
+export async function DELETE(req) {
+  const { searchParams } = new URL(req.url);
+  const id = searchParams.get("id");
+
+  const client = await clientPromise;
+  const db = client.db("study_tracker");
+  await db.collection("tasks").deleteOne({ id });
+
+  return NextResponse.json({ success: true });
+}
